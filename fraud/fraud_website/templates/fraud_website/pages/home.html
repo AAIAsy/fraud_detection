@@ -1,0 +1,18 @@
+{% extends "fraud_website/utils/base.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    <h3>Here are their details:</h3>
+
+    {% for result in results %}
+        <p>ID: {{ result.client_id_x }}</p>
+        <p>Card Number: {{ result.card_number }}</p>
+        <p>Card Brand: {{ result.card_brand }}</p>
+        <p>Card Type: {{ result.card_type }}</p>
+        <br>
+    {% endfor %}
+
+{% endblock %}
