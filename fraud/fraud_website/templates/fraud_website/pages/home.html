@@ -5,14 +5,21 @@
 {% endblock %}
 
 {% block content %}
-    <h3>Here are their details:</h3>
+    <div class="container">
+        <h3>Here are their details:</h3>
 
-    {% for result in results %}
-        <p>ID: {{ result.client_id_x }}</p>
-        <p>Card Number: {{ result.card_number }}</p>
-        <p>Card Brand: {{ result.card_brand }}</p>
-        <p>Card Type: {{ result.card_type }}</p>
-        <br>
-    {% endfor %}
+        {% for result in results %}
+            <div class="card bg-light mb-3" style="max-width: 20rem;">
+                <div class="card-header">{{ result.client_id }}</div>
+                <div class="card-body">
+                    <!-- <h4 class="card-title">Light card title</h4> -->
+                    <p class="card-text"><span style="font-size: 20px;">ID:</span> {{ result.client_id }}</p>
+                    <p class="card-text"><span style="font-size: 20px;">Age:</span> {{ result.current_age }}</p>
+                    <p class="card-text"><span style="font-size: 20px;">Cards issued:</span> {{ result.num_cards_issued }}</p>
+            </div>
+            <br>
+        {% endfor %}
+    </div>
+    
 
 {% endblock %}

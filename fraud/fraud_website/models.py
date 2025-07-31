@@ -77,6 +77,32 @@ class AuthUserUserPermissions(models.Model):
         unique_together = (('user', 'permission'),)
 
 
+class Cards(models.Model):
+    mcc_description = models.TextField(blank=True, null=True)
+    transaction_id = models.BigIntegerField(blank=True, null=True)
+    date = models.TextField(blank=True, null=True)
+    client_id = models.BigIntegerField(blank=True, null=True)
+    card_id = models.BigIntegerField(blank=True, null=True)
+    amount = models.FloatField(blank=True, null=True)
+    use_chip = models.TextField(blank=True, null=True)
+    merchant_id = models.BigIntegerField(blank=True, null=True)
+    merchant_city = models.TextField(blank=True, null=True)
+    merchant_state = models.TextField(blank=True, null=True)
+    credit_score = models.BigIntegerField(blank=True, null=True)
+    card_brand = models.TextField(blank=True, null=True)
+    card_type = models.TextField(blank=True, null=True)
+    card_number = models.BigIntegerField(blank=True, null=True)
+    expires = models.TextField(blank=True, null=True)
+    cvv = models.BigIntegerField(blank=True, null=True)
+    has_chip = models.TextField(blank=True, null=True)
+    credit_limit = models.FloatField(blank=True, null=True)
+    card_on_dark_web = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'cards'
+
+
 class DjangoAdminLog(models.Model):
     action_time = models.DateTimeField()
     object_id = models.TextField(blank=True, null=True)
@@ -122,41 +148,19 @@ class DjangoSession(models.Model):
         db_table = 'django_session'
 
 
-class Fraud1(models.Model):
-    mcc_description = models.TextField(blank=True, null=True)
-    transaction_id = models.BigIntegerField(blank=True, null=True)
-    date = models.TextField(blank=True, null=True)
-    client_id_x = models.BigIntegerField(blank=True, primary_key=True)
-    card_id = models.BigIntegerField(blank=True, null=True)
-    amount = models.FloatField(blank=True, null=True)
-    use_chip = models.TextField(blank=True, null=True)
-    merchant_id = models.BigIntegerField(blank=True, null=True)
-    merchant_city = models.TextField(blank=True, null=True)
-    merchant_state = models.TextField(blank=True, null=True)
-    zip = models.FloatField(blank=True, null=True)
-    errors = models.TextField(blank=True, null=True)
+class Persons(models.Model):
+    client_id = models.BigIntegerField(primary_key=True)
+    gender = models.TextField(blank=True, null=True)
     current_age = models.BigIntegerField(blank=True, null=True)
     retirement_age = models.BigIntegerField(blank=True, null=True)
-    birth_year = models.BigIntegerField(blank=True, null=True)
     birth_month = models.BigIntegerField(blank=True, null=True)
-    gender = models.TextField(blank=True, null=True)
+    birth_year = models.BigIntegerField(blank=True, null=True)
     address = models.TextField(blank=True, null=True)
-    latitude = models.FloatField(blank=True, null=True)
-    longitude = models.FloatField(blank=True, null=True)
     per_capita_income = models.FloatField(blank=True, null=True)
     yearly_income = models.FloatField(blank=True, null=True)
     total_debt = models.FloatField(blank=True, null=True)
-    credit_score = models.BigIntegerField(blank=True, null=True)
-    card_brand = models.TextField(blank=True, null=True)
-    card_type = models.TextField(blank=True, null=True)
-    card_number = models.BigIntegerField(blank=True, null=True)
-    expires = models.TextField(blank=True, null=True)
-    cvv = models.BigIntegerField(blank=True, null=True)
-    has_chip = models.TextField(blank=True, null=True)
     num_cards_issued = models.BigIntegerField(blank=True, null=True)
-    credit_limit = models.FloatField(blank=True, null=True)
-    card_on_dark_web = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = False
-        db_table = 'fraud1'
+        db_table = 'persons'
