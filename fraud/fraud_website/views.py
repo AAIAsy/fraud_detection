@@ -10,3 +10,8 @@ def home(request):
     context = {"results": results}
 
     return render(request, "fraud_website/pages/home.html", context=context)
+
+
+# Login page
+def login(request):
+    return render(request, "fraud_website/pages/login.html")

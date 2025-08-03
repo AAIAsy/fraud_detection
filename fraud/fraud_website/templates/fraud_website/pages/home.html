@@ -6,20 +6,34 @@
 
 {% block content %}
     <div class="container">
-        <h3>Here are their details:</h3>
+        <div class="main">
+            <h1 style="font-weight: bold;">Bank Manager</h1>
+            <h4 style="margin-top: 15px;">Welcome to the our most organized and reliable bank manager.</h4>
+        </div>
 
-        {% for result in results %}
-            <div class="card bg-light mb-3" style="max-width: 20rem;">
-                <div class="card-header">{{ result.client_id }}</div>
-                <div class="card-body">
-                    <!-- <h4 class="card-title">Light card title</h4> -->
-                    <p class="card-text"><span style="font-size: 20px;">ID:</span> {{ result.client_id }}</p>
-                    <p class="card-text"><span style="font-size: 20px;">Age:</span> {{ result.current_age }}</p>
-                    <p class="card-text"><span style="font-size: 20px;">Cards issued:</span> {{ result.num_cards_issued }}</p>
-            </div>
-            <br>
-        {% endfor %}
+        <div class="subtitle" style="display: flex; justify-content: center; gap: 50px; margin-top: 50px;">
+            <a href="{% url 'login' %}" style="text-decoration: none;">
+                <div class="card bg-light mb-3" style="max-width: 35rem; --bs-card-border-radius: 2rem; text-align: center;">
+                    <div class="card-body">
+                        <h3 style="font-weight: bold; margin: 1rem;">Personal Account</h3>
+                        <p>This is for clients who wish to view their accounts and their transaction statements. They are also notified of whether their transactions had been scammed with our ML-powered fraud detection algorithm.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" style="text-decoration: none;">
+                <div class="card bg-light mb-3" style="max-width: 35rem; --bs-card-border-radius: 2rem; text-align: center;">
+                    <div class="card-body">
+                        <h3 style="font-weight: bold; margin: 1rem;">Admin Access</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius sed, laborum magni totam fugit iste, explicabo tempore consectetur sint aliquid ab, ad iure nisi voluptatibus non dolores officia atque. Delectus?</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
     </div>
+
+    {% include "fraud_website/utils/footer.html" %}
     
 
 {% endblock %}

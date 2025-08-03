@@ -1,0 +1,40 @@
+{% extends "fraud_website/utils/base.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="container">
+       
+
+        <div style="margin: auto; width:60%; margin-top: 50px;">
+            <div style="width: 50rem; height: 50rem; border-radius: 10px; background: #ecf0f1;">
+                 <div style="text-align: center; padding: 20px;">
+                    <h1 style="font-weight: bold; margin: 15px;">Log In</h1>
+                    <h4 >Log in with your credentials to access your account.</h4>
+                </div>
+
+                <div>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div>
+                            <div>
+                               
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        
+
+    </div>
+
+
+
+{% endblock %}
